@@ -7,7 +7,7 @@ import dotenv from "dotenv";
 import db from "./config/dbConfig";
 import { movieRouter } from "./routes/movieRoutes";
 var swaggerUi = require('swagger-ui-express');
-var swaggerDocument = require('./swagger.json')
+const swaggerDocument = require('../src/swagger');
 
 dotenv.config();
 

@@ -1,22 +1,44 @@
-{
-	"swagger": "2.0",
-	"info": {
-		"version": "1.0.0",
-		"title": "Swagger CRUD",
-        	"description": "Swagger CRUD description",
-        	"contact": {
-            		"email": "jadavshyamal.js@gmail.com"
-        	}
-	},
-    	"host": "localhost:3500",
-	"basePath": "localhost:3500/movies/",
-	"tags": [
-		{
-			"name": "Users",
-			"description": "User actions"
+ {	
+	"paths": {
+		"localhost:3500/movies": {
+			"get": {
+				"tags": ["movies"],
+				"description": "Get all movies",
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"name": "star war",
+						"required": ["profile_id", "username", "password"],
+						"in": "body",
+						"properties": {
+							"profile_id": {
+								"$ref": "#/definitions/profile_id"
+							},
+							"username": {
+								"$ref": "#/definitions/username"
+							},
+							"password": {
+								"$ref": "#/definitions/password"
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success"
+					},
+					"400": {
+						"description": "Business Exception",
+						"schema": {
+							"$ref": "#/definitions/business_exception"
+						}
+					}
+				}
+			}
+		
+			
+			
 		}
-	],
-	"schemes": ["http", "https"],
-	"consumes": ["application/json"],
-	"produces": ["application/json"]
+	}
 }
+
