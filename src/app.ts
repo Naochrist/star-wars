@@ -1,3 +1,4 @@
+import indexRouter from "./routes/index";
 import createError from "http-errors";
 import express from "express";
 import logger from "morgan";
@@ -5,6 +6,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import db from "./config/dbConfig";
 import { movieRouter } from "./routes/movieRoutes";
+var swaggerUi = require('swagger-ui-express');
+var swaggerDocument = require('./swagger.json')
 
 dotenv.config();
 
@@ -19,6 +22,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 app.use("/movies", movieRouter);
+
+app.use("/", indexRouter);
+
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+
 
 app.use(function (
   err: createError.HttpError,

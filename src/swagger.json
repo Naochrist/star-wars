@@ -1,0 +1,22 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "1.0.0",
+		"title": "Swagger CRUD",
+        	"description": "Swagger CRUD description",
+        	"contact": {
+            		"email": "jadavshyamal.js@gmail.com"
+        	}
+	},
+    	"host": "localhost:3500",
+	"basePath": "localhost:3500/movies/",
+	"tags": [
+		{
+			"name": "Users",
+			"description": "User actions"
+		}
+	],
+	"schemes": ["http", "https"],
+	"consumes": ["application/json"],
+	"produces": ["application/json"]
+}
